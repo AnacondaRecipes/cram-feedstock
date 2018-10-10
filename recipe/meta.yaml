@@ -1,22 +1,17 @@
 {% set name = "cram" %}
 {% set version = "0.7" %}
-{% set bundle = "tar.gz" %}
-{% set hash_type = "sha256" %}
-{% set hash = "7da7445af2ce15b90aad5ec4792f857cef5786d71f14377e9eb994d8b8337f2f" %}
-{% set build = 1 %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.{{ bundle }}
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
-  {{ hash_type }}: {{ hash }}
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 7da7445af2ce15b90aad5ec4792f857cef5786d71f14377e9eb994d8b8337f2f
 
 build:
   noarch: python
-  number: {{ build }}
+  number: 1
   script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
